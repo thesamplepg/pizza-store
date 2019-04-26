@@ -21,7 +21,7 @@ exports.getOrders = async(req, res) => {
 
 exports.createOrder = (req, res) => {
 
-    new Order(req.body)
+    new Order(req.body).save()
         .then(order => {
 
             res.status(200).json({success:true});
@@ -44,7 +44,7 @@ exports.createOrder = (req, res) => {
 
 exports.deleteOrder = (req, res) => {
 
-    if(req.query.id && ObjectId(req.query.id)) {
+    if(req.query.id && ObjectId.isValid(req.query.id)) {
 
         Order.findByIdAndDelete({_id: ObjectId(req.query.id)})
             .then(deletedOrder => {
