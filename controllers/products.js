@@ -97,7 +97,7 @@ exports.deleteProduct = (req, res) => {
             });
 
     } else {
-        res.status(400).json({ success: false, error: 'Wrong product id' });
+        res.status(400).json({ success: false, error: 'Wrong product`s id' });
     }
 
 }
