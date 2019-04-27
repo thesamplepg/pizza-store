@@ -1,4 +1,5 @@
 module.exports = {
     mongoURI: 'mongodb+srv://aktan:0777128261@pizza-store-teqqj.mongodb.net/test?retryWrites=true',
-    session: '48a8df78a0df8a9'
+    session: '48a8df78a0df8a9',
+    jwt: "pizza-store-3248da8df78a0df8a9"
 }
