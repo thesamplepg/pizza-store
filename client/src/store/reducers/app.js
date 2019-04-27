@@ -1,7 +1,8 @@
 import * as actionTypes from '../actions/index';
 
 const initialState = {
-    loading: false
+    loading: false,
+    promotions: null
 };
 
 export default (state = initialState, action) => {
@@ -16,6 +17,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loading: false
+            }
+        case actionTypes.GET_PROMOTIONS:
+            return {
+                ...state,
+                promotions: action.payload.promotions
             }
         
         default: return state;

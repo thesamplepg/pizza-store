@@ -1,10 +1,12 @@
 import React from 'react';
 
+import './index.scss';
+
 const Navbar = () => {
     return (
-        <div>
-            
-        </div>
+        <nav className="admin-page_navbar">
+            dsa
+        </nav>
     );
 }
 

@@ -1,23 +1,29 @@
 import * as actionTypes from '../actions/index';
 
 const initialState = {
-    login: false
+    login: false,
+    admins: null
 };
 
 export default (state = initialState, action) => {
 
     switch (action.type) {
-        case actionTypes.SHOW_LOADER:
+        case actionTypes.VERIFY:
             return {
                 ...state,
-                loading: true
+                login: true
             }
-        case actionTypes.HIDE_LOADER:
+        case actionTypes.VERIFY_FALSE:
             return {
                 ...state,
-                loading: false
+                login: false
             }
-        
+        case actionTypes.GET_ADMINS:
+            return {
+                ...state,
+                admins: action.payload.admins
+            }
+
         default: return state;
     }
 

@@ -24,3 +24,37 @@ export const verify = () => dispatch => new Promise(async(resolve, reject) => {
 
     }
 });
+
+export const getAdmins = () => dispatch => new Promise((resolve, reject) => {
+    
+    dispatch({type: actionTypes.GET_ADMINS + '_REQUEST'});
+
+    fetch('/api/admins')
+        .then(res => res.json())
+        .then(data => {
+
+            if(data.success) {
+
+                dispatch({
+                    type: actionTypes.GET_ADMINS,
+                    payload: { admins: data.admins }
+                });
+
+                resolve(data.admins);
+
+            } else {
+
+                dispatch({
+                    type: actionTypes.GET_ADMINS + '_FALSE'
+                });
+
+                reject();
+
+            }
+
+        })
+        .catch(err => {
+            console.log(err);
+        });
+
+});

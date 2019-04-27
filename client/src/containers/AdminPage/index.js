@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import './index.scss';
 import Navbar from './Navbar';
-import { verify } from '../../store/actions/admin';
+import { verify, getAdmins } from '../../store/actions/admin';
 import { showLoader, hideLoader } from '../../store/actions/app';
 
 class AdminPage extends Component {
@@ -21,17 +21,18 @@ class AdminPage extends Component {
         try {
             
             await this.props.verify();
-
-        } catch (error) {
-            
-            this.props.history.push('/admin/login');
-
-        } finally {
+            await this.props.getAdmins();
 
             this.setState({loading: false});
             this.props.hideLoader();
 
-        }
+
+        } catch (error) {
+            
+            this.props.history.push('/admin/login');
+            this.props.hideLoader();
+
+        } 
             
     }
 
@@ -54,7 +55,10 @@ class AdminPage extends Component {
 }
 
 const dispatchs = {
-    verify, showLoader, hideLoader
+    verify, 
+    showLoader, 
+    hideLoader, 
+    getAdmins
 }
 
 export default connect( state => ({

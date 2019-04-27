@@ -10,6 +10,18 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+    switch (action.type) {
+        case actionTypes.GET_MENU:
+            const newMenu = {...state};
 
+            for(let item in newMenu) {
+                if(action.payload.menu[item]) {
+                    newMenu[item] = action.payload.menu[item];
+                }
+            }
+        
+            return newMenu;
 
+        default: return state;
+    }
 }
