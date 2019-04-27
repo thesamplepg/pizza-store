@@ -1,0 +1,25 @@
+.button-loader {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.63);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        color: var(--color-orange);
+        animation: spin 1s linear infinite;
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            } to {
+                transform: rotate(360deg);
+            }
+        }
+    }
+}
+

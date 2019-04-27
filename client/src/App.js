@@ -13,7 +13,7 @@ class App extends Component {
             <React.Fragment>
                 <main className="app-main">
                     <Switch>
-                        <Route path="/admin" component={AdminPage}/>
+                        <Route exact path="/admin" component={AdminPage}/>
                         <Route path="/admin/login" component={AdminLogin}/>
                     </Switch>
                 </main>
