@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import './index.scss';
 import Loader from './components/Loader';
 import AdminPage from './containers/AdminPage';
+import AdminLogin from './containers/AdminLogin';
 
 class App extends Component {
     render() {
         return (
             <React.Fragment>
-                <Loader loading={this.props.loading}/>
-                <main>
-                    <Route path="/admin" component={AdminPage}/>
+                <main className="app-main">
+                    <Switch>
+                        <Route path="/admin" component={AdminPage}/>
+                        <Route path="/admin/login" component={AdminLogin}/>
+                    </Switch>
                 </main>
+                <Loader loading={this.props.loading}/>
             </React.Fragment>
         );
     }

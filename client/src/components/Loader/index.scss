@@ -1,14 +1,13 @@
 .full-screen_loader {
-    
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
-    position: fixed;
-    z-index: 10000;
-    top: 0;
-    left: 0;
     background-color: #fff;
     transition: all .5s;
 
@@ -60,4 +59,5 @@
 .full-screen_loader-hide {
     z-index: -10000;
     opacity: 0;
+    display: none;
 }
