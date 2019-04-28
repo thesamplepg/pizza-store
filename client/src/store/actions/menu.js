@@ -1,29 +1,6 @@
 import * as actionTypes from './index';
+import { getDataTemplate } from './utlilits'
 
-export const getMenu = () => dispatch => new Promise((resolve, reject) => {
-    
-    dispatch({type: actionTypes.GET_MENU + '_REQUEST'});
-
-    fetch('/api/products')
-        .then(res => res.json())
-        .then(data => {
-
-            if(data.success) {
-                dispatch({
-                    type: actionTypes.GET_MENU,
-                    payload: { menu: data.menu }
-                });
-
-                resolve();
-            } else {
-                dispatch({
-                    type: actionTypes.GET_MENU + '_FALSE'
-                });
-                
-                reject();
-            }
-
-        })
-        .catch(err => console.log(err));
-
-});
+export const getMenu = () => dispatch => {
+    return getDataTemplate('products', actionTypes.GET_MENU, dispatch);
+}

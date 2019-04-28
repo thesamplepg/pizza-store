@@ -21,7 +21,7 @@ class App extends Component {
     }
 
     async componentDidMount() {
-        this.props.getPromotions();
+        this.props.getPromotions()
         await this.props.getMenu();
 
         this.props.hideLoader();
@@ -46,6 +46,8 @@ class App extends Component {
                 </main>
             )
         }
+
+        console.log(this.props.loading);
 
         return (
             <React.Fragment>

@@ -21,7 +21,7 @@ export default (state = initialState, action) => {
         case actionTypes.GET_PROMOTIONS:
             return {
                 ...state,
-                promotions: action.payload.promotions
+                promotions: action.payload.data
             }
         
         default: return state;

@@ -19,7 +19,6 @@ class AdminPage extends Component {
     
     async componentDidMount() {
         try {
-            
             await this.props.verify();
             await this.props.getAdmins();
 
@@ -62,5 +61,6 @@ const dispatchs = {
 }
 
 export default connect( state => ({
-    login: state.admin.login
+    login: state.admin.login,
+    loading: state.app.loading
 }), dispatchs )(AdminPage);

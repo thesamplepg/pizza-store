@@ -2,7 +2,8 @@ import * as actionTypes from '../actions/index';
 
 const initialState = {
     login: false,
-    admins: null
+    admins: null,
+    orders: null
 };
 
 export default (state = initialState, action) => {
@@ -21,7 +22,12 @@ export default (state = initialState, action) => {
         case actionTypes.GET_ADMINS:
             return {
                 ...state,
-                admins: action.payload.admins
+                admins: action.payload.data
+            }
+        case actionTypes.GET_ORDERS:
+            return {
+                ...state,
+                orders: action.payload.data
             }
 
         default: return state;

@@ -15,8 +15,8 @@ export default (state = initialState, action) => {
             const newMenu = {...state};
 
             for(let item in newMenu) {
-                if(action.payload.menu[item]) {
-                    newMenu[item] = action.payload.menu[item];
+                if(action.payload.data[item]) {
+                    newMenu[item] = action.payload.data[item];
                 }
             }
         

@@ -1,4 +1,5 @@
 import * as actionTypes from './index';
+import { getDataTemplate } from './utlilits';
 
 export const verify = () => dispatch => new Promise(async(resolve, reject) => {
 
@@ -25,36 +26,10 @@ export const verify = () => dispatch => new Promise(async(resolve, reject) => {
     }
 });
 
-export const getAdmins = () => dispatch => new Promise((resolve, reject) => {
-    
-    dispatch({type: actionTypes.GET_ADMINS + '_REQUEST'});
+export const getAdmins = () => dispatch => {
+    return getDataTemplate('admins', actionTypes.GET_ADMINS, dispatch);
+}
 
-    fetch('/api/admins')
-        .then(res => res.json())
-        .then(data => {
-
-            if(data.success) {
-
-                dispatch({
-                    type: actionTypes.GET_ADMINS,
-                    payload: { admins: data.admins }
-                });
-
-                resolve(data.admins);
-
-            } else {
-
-                dispatch({
-                    type: actionTypes.GET_ADMINS + '_FALSE'
-                });
-
-                reject();
-
-            }
-
-        })
-        .catch(err => {
-            console.log(err);
-        });
-
-});
+export const getOrders = () => dispatch => {
+    return getDataTemplate('orders', actionTypes.GET_ORDERS, dispatch);
+}

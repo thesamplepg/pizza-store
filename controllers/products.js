@@ -24,7 +24,7 @@ exports.getMenu = async(req, res) => {
                 desserts: await Product.find({type: 'dessert'})
             }
 
-            res.status(200).json({success: true, menu});
+            res.status(200).json({success: true, products: menu});
         
         }
 
