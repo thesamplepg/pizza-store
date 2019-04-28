@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import './index.scss';
@@ -27,9 +27,9 @@ class App extends Component {
         this.props.hideLoader();
         this.setState({loading: false});
     }
-    
+
     shouldComponentUpdate(nextProps, nextState) {
-        return this.state.loading !== nextState.loading;
+        return nextProps.loading !== this.props.loading || nextState.loading !== this.state.loading;
     }
     
     render() {
@@ -46,8 +46,6 @@ class App extends Component {
                 </main>
             )
         }
-
-        console.log(this.props.loading);
 
         return (
             <React.Fragment>
@@ -67,4 +65,4 @@ const dispatchs = {
 
 export default connect( state => ({
     loading: state.app.loading,
-}), dispatchs )(App);
+}), dispatchs )(withRouter(App));
