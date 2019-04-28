@@ -2,6 +2,7 @@ export const getDataTemplate = (url, type, dispatch) => new Promise((resolve, re
 
     dispatch({type: type + '_REQUEST'});
 
+
     fetch(`/api/${url}`)
         .then(res => res.json())
         .then(data => {
