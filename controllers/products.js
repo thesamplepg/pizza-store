@@ -22,8 +22,8 @@ exports.getMenu = async(req, res) => {
                 pizzas: await Product.find({type: 'pizza'}),
                 snakes: await Product.find({type: 'snake'}),
                 desserts: await Product.find({type: 'dessert'}),
-                drinks: await Product.find({type: 'drinks'}),
-                souvenirs: await Product.find({type: 'souvenirs'}),
+                drinks: await Product.find({type: 'drink'}),
+                souvenirs: await Product.find({type: 'souvenir'}),
                 combos: await Product.find({type: 'combo'})
             }
 
