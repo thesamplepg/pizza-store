@@ -99,7 +99,7 @@ exports.createAdmin = async(req, res) => {
                 res.status(200).json({success: true, admin});
             })
             .catch(err => {
-                if(err.validationError) {
+                if(err.ValidationError) {
                     res.status(400).json({
                         success: false,
                         validationFails: Object.keys(err.errors)

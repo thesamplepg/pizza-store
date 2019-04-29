@@ -40,8 +40,8 @@ class App extends Component {
             output = (
                 <main className="app-main">
                     <Switch>
-                        <Route exact path="/admin" component={AdminPage}/>
                         <Route path="/admin/login" component={AdminLogin}/>
+                        <Route path="/admin" component={AdminPage}/>
                     </Switch>
                 </main>
             )

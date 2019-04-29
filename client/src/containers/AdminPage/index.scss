@@ -1,4 +1,11 @@
 .admin-page {
-    display: grid;
-    grid-template-columns: 300px 1fr;
+    &_content {
+        width: 1024px;
+        margin: 0 auto;
+
+        @media screen and (max-width: 1024px) {
+            width: 100%;
+            padding: 0 1rem;
+        }
+    }
 }

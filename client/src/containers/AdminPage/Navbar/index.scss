@@ -1,3 +1,43 @@
 .admin-page_navbar {
-    grid-column: 1 span 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--color-orange);
+    font-family: var(--font-open);
+
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    &_brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-right: 2rem;
+        margin-left: 10%;
+    }
+
+    &_items {
+        list-style-type: none;
+        display: flex;
+
+        li {
+            a {
+                font-weight: 600;
+                font-size: .9rem;
+                opacity: .8;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            margin: 0 1rem;
+
+            svg {
+                margin-right: .5rem;
+            }
+        }
+    }
 }

@@ -21,7 +21,10 @@ exports.getMenu = async(req, res) => {
             const menu = {
                 pizzas: await Product.find({type: 'pizza'}),
                 snakes: await Product.find({type: 'snake'}),
-                desserts: await Product.find({type: 'dessert'})
+                desserts: await Product.find({type: 'dessert'}),
+                drinks: await Product.find({type: 'drinks'}),
+                souvenirs: await Product.find({type: 'souvenirs'}),
+                combos: await Product.find({type: 'combos'})
             }
 
             res.status(200).json({success: true, products: menu});
@@ -53,7 +56,7 @@ exports.createProduct = (req, res) => {
 
             const newProduct = await new Product(data).save();
 
-            res.status(200).json({ product: newProduct });
+            res.status(200).json({ success: true, product: newProduct });
 
             return Promise.resolve();
                     
@@ -61,7 +64,9 @@ exports.createProduct = (req, res) => {
         .then(() => fs.remove(file.path))
         .catch(error => {
 
-            if(error.validationError) {
+            console.log(error);
+
+            if(error.ValidationError) {
                 res.status(400).json({ 
                     success: false,
                     validationFails: Object.keys(error.errors)

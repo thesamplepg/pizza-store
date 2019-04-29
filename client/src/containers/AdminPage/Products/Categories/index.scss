@@ -1,0 +1,24 @@
+.admin-page_products_categories {
+    display: flex;
+    list-style-type: none;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+
+    &_item {
+        color: var(--color-orange);
+        cursor: pointer;
+        font-weight: 500;
+        margin: 0 1rem;
+        font-family: var(--font-open);
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    .active {
+        color: var(--color-dark);
+    }
+}

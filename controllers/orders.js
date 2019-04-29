@@ -29,7 +29,7 @@ exports.createOrder = (req, res) => {
         })
         .catch(error => {
 
-            if(error.validationError) {
+            if(error.ValidationError) {
                 res.status(400).json({
                     success: false,
                     validationFails: error.errors

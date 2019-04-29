@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
 
 import './index.scss';
-import Navbar from './Navbar';
 import { verify, getAdmins } from '../../store/actions/admin';
 import { showLoader, hideLoader } from '../../store/actions/app';
+import Navbar from './Navbar';
+import Products from './Products';
 
 class AdminPage extends Component {
 
@@ -47,7 +49,11 @@ class AdminPage extends Component {
         return (
             <div className="admin-page">
                 <Navbar />
-                ads
+                <section className="admin-page_content">
+                    <Switch>
+                        <Route path="/admin" component={Products}/>
+                    </Switch>
+                </section>
             </div>
         );
     }
