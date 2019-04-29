@@ -1,11 +1,10 @@
 .admin-page {
-    &_content {
+    .admin-page_content {
         width: 1024px;
         margin: 0 auto;
 
         @media screen and (max-width: 1024px) {
             width: 100%;
-            padding: 0 1rem;
         }
     }
 }

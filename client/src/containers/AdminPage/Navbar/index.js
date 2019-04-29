@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { faPizzaSlice, faShare, faNewspaper } from '@fortawesome/free-solid-svg-icons';
 
 import './index.scss';
-import Icon from '../../../components/Icon';
+import Icon from '../../../components/Icon'
 
 const Navbar = () => {
     const items = [
@@ -24,16 +24,17 @@ const Navbar = () => {
         }
     ]
     
+
     return (
         <nav className="admin-page_navbar">
-            <Link className="admin-page_navbar_brand" to="/admin">Admin Panel</Link>
+            <Link to="/admin" className="admin-page_navbar_brand">Admin Panel</Link>
             <ul className="admin-page_navbar_items">
                 {
                     items.map(item => {
                         return (
                             <li key={item.title}>
                                 <Link to={`/admin${item.path}`}>
-                                    <Icon icon={ item.icon }/>
+                                    <Icon icon={item.icon}/>
                                     {item.title}
                                 </Link>
                             </li>

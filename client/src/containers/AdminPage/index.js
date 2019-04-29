@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
 import './index.scss';
-import { verify, getAdmins } from '../../store/actions/admin';
-import { showLoader, hideLoader } from '../../store/actions/app';
 import Navbar from './Navbar';
+import { verify, getAdmins, getOrders } from '../../store/actions/admin';
+import { showLoader, hideLoader } from '../../store/actions/app';
 import Products from './Products';
 
 class AdminPage extends Component {
@@ -18,11 +18,25 @@ class AdminPage extends Component {
     componentWillMount() {
         this.props.showLoader();
     }
+
+    getAsyncData = () => new Promise((resolve, reject) => {
+        const actions = [this.props.getAdmins, this.props.getOrders];
+        let responses = 0;
+
+        actions.forEach((action) => {
+            action()
+            .then(() => {
+                responses += 1;
+                if(responses === actions.length) resolve();
+            })
+            .catch(err => reject(err));
+        });
+    });
     
     async componentDidMount() {
         try {
             await this.props.verify();
-            await this.props.getAdmins();
+            await this.getAsyncData();
 
             this.setState({loading: false});
             this.props.hideLoader();
@@ -38,11 +52,7 @@ class AdminPage extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        if(this.state.loading !== nextState.loading) {
-            return true;
-        } 
-
-        return false;
+        return this.state.loading !== nextState.loading;
     }
 
     render() {
@@ -63,7 +73,8 @@ const dispatchs = {
     verify, 
     showLoader, 
     hideLoader, 
-    getAdmins
+    getAdmins,
+    getOrders
 }
 
 export default connect( state => ({
