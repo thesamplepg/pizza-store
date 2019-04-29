@@ -13,3 +13,6 @@ export const SET_ACTIVE = 'SET_ACTIVE';
 
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
+
+export const DELETE_PROMOTION = 'DELETE_PROMOTION'; 
+export const ADD_PROMOTION = 'ADD_PROMOTION';

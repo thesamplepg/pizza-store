@@ -37,7 +37,7 @@ exports.createPromotion = (req, res) => {
         })
         .then(promotion => {
 
-            res.status(200).json({ promotion });
+            res.status(200).json({ success: true, promotion });
 
             fs.remove(req.file.path);
 

@@ -23,6 +23,24 @@ export default (state = initialState, action) => {
                 ...state,
                 promotions: action.payload.data
             }
+        case actionTypes.ADD_PROMOTION:
+            return {
+                ...state,
+                promotions: [
+                    ...state.promotions,
+                    action.payload.promotion
+                ]
+            }
+
+        case actionTypes.DELETE_PROMOTION: {
+
+            const promotions = state.promotions.filter(item => item._id !== action.payload.id);
+            
+            return {
+                ...state,
+                promotions
+            }
+        }
         
         default: return state;
     }

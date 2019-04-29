@@ -7,6 +7,7 @@ import Navbar from './Navbar';
 import { verify, getAdmins, getOrders } from '../../store/actions/admin';
 import { showLoader, hideLoader } from '../../store/actions/app';
 import Products from './Products';
+import Promotions from './Promotions';
 
 class AdminPage extends Component {
 
@@ -61,7 +62,8 @@ class AdminPage extends Component {
                 <Navbar />
                 <section className="admin-page_content">
                     <Switch>
-                        <Route path="/admin" component={Products}/>
+                        <Route exact path="/admin" component={Products}/>
+                        <Route path="/admin/promotions" component={Promotions}/>
                     </Switch>
                 </section>
             </div>
