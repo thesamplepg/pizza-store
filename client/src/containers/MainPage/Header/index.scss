@@ -1,0 +1,14 @@
+.main-page_carousel {
+    overflow: hidden;
+
+    .swiper-wrapper {
+        display: flex;
+
+        .swiper-slide {
+            flex-shrink: 0;
+            height: 400px;
+            background-size: cover !important;
+            background-position: center center !important;
+        }
+    }
+}

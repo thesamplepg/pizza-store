@@ -7,53 +7,55 @@ import logo from '../../assets/logo.png';
 class MainNavbar extends Component {
 
     state = {
-        sticky: false,
+        logo: false,
         offsetTop: null
     }
 
     componentDidMount() {
-        this.setState({offsetTop: document.querySelector('.main-navbar_nav').offsetTop});
+        this.setState({offsetTop: document.querySelector('.main-page_navbar').offsetTop});
         window.addEventListener('scroll', this.scrollHandler);
     }
 
     componentWillUnmount() {
-        window.removeEventListener('scroll', this.scrollHandler);
+        window.removeEventListener('scroll', this.scrollHandler);   
     }
 
     scrollHandler = () => {
-        const { offsetTop } = this.state;
+        const {offsetTop} = this.state;
 
-        if(window.scrollY > offsetTop && !this.state.sticky) this.setState({sticky: true});
-        else if(window.scrollY < offsetTop && this.state.sticky) this.setState({sticky: false});
+        if(window.scrollY > offsetTop && !this.state.logo) this.setState({logo: true});
+        else if(window.scrollY < offsetTop && this.state.logo) this.setState({logo: false});
     }
-    
 
+    
     render() {
         const items = ['pizzas', 'combos', 'snakes', 'desserts', 'drinks'];
 
         return (
-            <nav className="main-navbar_wrapper">
-                <div className="main-navbar">
-                    <header className="main-navbar_header">
-                        <Link to="/" className="main-navbar_header_brand">
+            <React.Fragment>
+                <header className="main-page_header">
+                    <div className="wrapper">
+                        <Link to="/">
                             <img src={logo} alt="logo"/>
                             OK PIZZA
                         </Link>
-                        <div className="main-navbar_header_promotion">
+                        <div className="promotion">
                             Pizza delivery <br />
-                            <span>60 minutes or pizza for free</span>
-                        </div>
-                    </header>
-                    <div className={`main-navbar_nav${this.state.sticky ? ' nav-sticky' : ''}`}>
-                        <div className="main-navbar_nav_wrapper">
-                            <img src={logo} alt="logo"/>
-                            <ul className="main-navbar_nav_wrapper_items">
-                                {items.map(item => <li key={item}>{item}</li>)}
-                            </ul>
+                            <span>60 minut or pizza for free</span>
                         </div>
                     </div>
-                </div>
-            </nav>
+                </header>
+                <nav className="main-page_navbar">
+                    <div className="wrapper">
+                        <ul className={`main-page_navbar_items${this.state.logo ? ' show-logo' : ''}`}>
+                            <Link to="/" className="logo">
+                                <img src={logo} alt="logo"/>
+                            </Link>
+                            {items.map(item => <li key={item}>{item}</li>)}
+                        </ul>
+                    </div>
+                </nav>
+            </React.Fragment>
         );
     }
 }
