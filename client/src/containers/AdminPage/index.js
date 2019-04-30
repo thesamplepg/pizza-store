@@ -19,25 +19,11 @@ class AdminPage extends Component {
     componentWillMount() {
         this.props.showLoader();
     }
-
-    getAsyncData = () => new Promise((resolve, reject) => {
-        const actions = [this.props.getAdmins, this.props.getOrders];
-        let responses = 0;
-
-        actions.forEach((action) => {
-            action()
-            .then(() => {
-                responses += 1;
-                if(responses === actions.length) resolve();
-            })
-            .catch(err => reject(err));
-        });
-    });
     
     async componentDidMount() {
         try {
             await this.props.verify();
-            await this.getAsyncData();
+            await this.props.getOrders();
 
             this.setState({loading: false});
             this.props.hideLoader();

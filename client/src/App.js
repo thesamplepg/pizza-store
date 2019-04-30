@@ -8,6 +8,7 @@ import { getPromotions, showLoader, hideLoader } from './store/actions/app';
 import Loader from './components/Loader';
 import AdminPage from './containers/AdminPage';
 import AdminLogin from './containers/AdminLogin';
+import MainPage from './containers/MainPage';
 
 class App extends Component {
 
@@ -42,6 +43,7 @@ class App extends Component {
                     <Switch>
                         <Route path="/admin/login" component={AdminLogin}/>
                         <Route path="/admin" component={AdminPage}/>
+                        <Route path="/" component={MainPage}/>
                     </Switch>
                 </main>
             )

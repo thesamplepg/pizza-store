@@ -1,0 +1,82 @@
+.main-navbar {
+    width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+
+    &_header {
+        display: flex;
+        align-items: center;
+        padding: 1em 0;
+        font-family: var(--font-open);
+
+        &_brand {
+            margin-right: 3em;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            font-size: 1.5em;
+            font-family: var(--font-roboto);
+
+            img {
+                width: 3em;
+                height: 3em;
+                margin-right: 1em;
+            }
+        }
+
+        &_promotion {
+            font-size: 1em;
+            font-weight: 550;
+            font-family: var(--font-raleway);
+    
+            span {
+                opacity: .5;
+            }
+        }
+    }
+
+    &_nav {
+        overflow: hidden;
+
+        &_wrapper {
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            transition: transform .4s;
+            transform: translateX(-2.5em);
+
+            img {
+                width: 2.5em;
+                height: 2.5em;
+            }
+            
+            &_items {
+                list-style-type: none;
+                display: flex;
+
+                li {
+                    margin: 0 1em;
+                    font-size: 1em;
+                    font-family: var(--font-roboto)
+                }
+            }
+        }
+    }
+
+    .nav-sticky {
+        position: fixed;
+        top: 0;
+        width: 960px;
+
+        .main-navbar_nav_wrapper {
+            transform: translateX(0);
+        }
+
+        @media screen and (max-width: 960px) {
+            width: 100%;
+        }
+    }
+}
