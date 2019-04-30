@@ -3,7 +3,7 @@ import Swiper from 'swiper';
 
 import './index.scss';
 
-const Header = ({promotions}) => {
+const CarouselSection = ({promotions}) => {
 
     React.useEffect(() => {
         new Swiper('.main-page_carousel', {
@@ -15,7 +15,7 @@ const Header = ({promotions}) => {
     });
 
     return (
-        <header className="main-page_carousel">
+        <section className="main-page_carousel">
             <div className="swiper-wrapper">
                 {
                     promotions.map(item => {
@@ -33,8 +33,8 @@ const Header = ({promotions}) => {
                     })
                 }
             </div>
-        </header>
+        </section>
     );
 }
 
-export default Header;
+export default CarouselSection;

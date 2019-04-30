@@ -2,7 +2,8 @@ import * as actionTypes from '../actions/index';
 
 const initialState = {
     loading: false,
-    promotions: null
+    promotions: null,
+    cart: []
 };
 
 export default (state = initialState, action) => {
@@ -31,7 +32,6 @@ export default (state = initialState, action) => {
                     action.payload.promotion
                 ]
             }
-
         case actionTypes.DELETE_PROMOTION: {
 
             const promotions = state.promotions.filter(item => item._id !== action.payload.id);
@@ -41,7 +41,50 @@ export default (state = initialState, action) => {
                 promotions
             }
         }
-        
+        case actionTypes.ADD_TO_CART: {
+            const cart = [...state.cart];
+
+            let exist = false;
+
+            for(let item in cart) {
+                if(cart[item]._id === action.payload.id) {
+                    exist = true;
+                }
+            }
+
+            if(!exist) {
+                cart.push({...action.payload.product, amount: 1});
+            } else {
+                cart.forEach(item => {
+                    if(item._id === action.payload.id) {
+                        item.amount += 1;
+                    }
+                });
+            }
+            
+            return {
+                ...state, cart
+            }
+        }
+
+        case actionTypes.REMOVE_FROM_CART: {
+            const cart = [...state.cart];
+
+            cart.forEach((item, index) => {
+                if(item._id === action.payload.id) {
+                    item.amount -= 1;
+                
+                    if(item.amount < 1) {
+                        cart.splice(index, 1);
+                    }
+                }
+            });
+
+            return {
+                ...state, cart
+            }
+        }
+
         default: return state;
     }
 

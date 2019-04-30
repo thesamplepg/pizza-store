@@ -26,3 +26,15 @@ export const addPromotion = (promotion) => {
         payload: { promotion }
     }
 }
+
+export const addToCart = (id, product) => ({
+    type: actionTypes.ADD_TO_CART,
+    payload: { product, id }
+});
+
+export const removeFromCart = (id) => ({
+    type: actionTypes.REMOVE_FROM_CART,
+    payload: { id }
+});
+
+

@@ -27,9 +27,16 @@ class MainNavbar extends Component {
         else if(window.scrollY < offsetTop && this.state.logo) this.setState({logo: false});
     }
 
+    clickHandler = (item) => {
+
+        window.scrollTo({
+            top: document.querySelector(`.category-${item}`).offsetTop,
+            behavior: 'smooth'
+        });
+    }
     
     render() {
-        const items = ['pizzas', 'combos', 'snakes', 'desserts', 'drinks'];
+        const items = ['pizzas', 'combos', 'snakes', 'drinks', 'desserts', 'souvenirs'];
 
         return (
             <React.Fragment>
@@ -45,13 +52,19 @@ class MainNavbar extends Component {
                         </div>
                     </div>
                 </header>
-                <nav className="main-page_navbar">
+                <nav className="main-page_navbar" style={{boxShadow: this.state.logo ? '0 1px 5px 2px rgba(0, 0, 0, .4)' : 'none'}}>
                     <div className="wrapper">
                         <ul className={`main-page_navbar_items${this.state.logo ? ' show-logo' : ''}`}>
                             <Link to="/" className="logo">
                                 <img src={logo} alt="logo"/>
                             </Link>
-                            {items.map(item => <li key={item}>{item}</li>)}
+                            {items.map(item => 
+                                <li 
+                                    onClick={() => this.clickHandler(item)} 
+                                    key={item}>
+                                {item}
+                                </li>
+                            )}
                         </ul>
                     </div>
                 </nav>

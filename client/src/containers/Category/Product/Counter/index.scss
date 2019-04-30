@@ -1,0 +1,27 @@
+.product-counter {
+    display: flex;
+    align-items: center;
+
+    div {
+        margin: 0 .5em;
+    }
+
+    .amount {
+        font-family: var(--font-roboto);
+    }
+
+    .plus, .minus {
+        cursor: pointer;
+        border-radius: 5px;
+        background-color: var(--color-orange);
+        padding: .5rem;
+
+        svg {
+            color: #fff;
+        }
+
+        &:active {
+            opacity: .8;
+        }
+    }
+}

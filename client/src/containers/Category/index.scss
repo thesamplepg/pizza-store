@@ -1,0 +1,19 @@
+.main-page_categories_category {
+
+    margin: 2rem 0;
+    margin-bottom: 6rem;
+
+    h2 {
+        font-family: var(--font-raleway);
+        text-transform: uppercase;
+        margin-bottom: 3em;
+        color: rgba(0, 0, 0, 0.747);
+    }
+
+    &_items {
+        display: grid;
+        grid-gap: 30px;
+        grid-template-columns: repeat(4, 1fr);
+        list-style-type: none;
+    }
+}
