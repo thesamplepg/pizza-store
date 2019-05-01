@@ -15,5 +15,13 @@
         grid-gap: 30px;
         grid-template-columns: repeat(4, 1fr);
         list-style-type: none;
+
+        @media screen and (max-width: 860px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media screen and (max-width: 620px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 }

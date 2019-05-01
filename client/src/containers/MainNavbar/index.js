@@ -16,7 +16,9 @@ class MainNavbar extends Component {
     }
 
     componentDidMount() {
-        this.setState({offsetTop: document.querySelector('.main-page_navbar').offsetTop});
+        if(this.props.navbar) {
+            this.setState({offsetTop: document.querySelector('.main-page_navbar').offsetTop});
+        }
         window.addEventListener('scroll', this.scrollHandler);
     }
 
@@ -58,41 +60,48 @@ class MainNavbar extends Component {
                         </div>
                     </div>
                 </header>
-                <nav className="main-page_navbar" style={{boxShadow: this.state.logo ? '0 1px 5px 2px rgba(0, 0, 0, .4)' : 'none'}}>
-                    <div className="wrapper">
-                        <ul className={`main-page_navbar_items${this.state.logo ? ' show-logo' : ''}`}>
-                            <Link to="/" className="logo">
-                                <img src={logo} alt="logo"/>
-                            </Link>
-                            {items.map(item => 
-                                <li 
-                                    onClick={() => this.clickHandler(item)} 
-                                    key={item}>
-                                {item}
-                                </li>
-                            )}
-                        </ul>
-                        <Link 
-                            to="/cart" 
-                            className="cart" 
-                            onClick={this.toggleCart}
-                        >
-                            Cart
-                            {
-                                this.props.cart.length > 0 ?
-                                <span> | {this.props.cart.length}</span> :
-                                null
-                            }
-                        </Link>
-                    </div>
-                    {
-                        this.state.isCartOpen ? 
+                {
+                    this.props.navbar ?
+                    <nav 
+                        className="main-page_navbar" 
+                        style={{
+                            boxShadow: this.state.logo ? '0 1px 5px 2px rgba(0, 0, 0, .4)' : 'none'
+                        }
+                    }>
+                        <div className="wrapper">
+                            <ul className={`main-page_navbar_items${this.state.logo ? ' show-logo' : ''}`}>
+                                <Link to="/" className="logo">
+                                    <img src={logo} alt="logo"/>
+                                </Link>
+                                {items.map(item => 
+                                    <li 
+                                        onClick={() => this.clickHandler(item)} 
+                                        key={item}>
+                                    {item}
+                                    </li>
+                                )}
+                            </ul>
+                            <div 
+                                style={{boxShadow: this.state.isCartOpen ? 'inset 0 0 3px 1px rgba(0, 0, 0, .5)' : 'none'}}
+                                className="cart" 
+                                onClick={this.toggleCart}
+                            >
+                                Cart
+                                {
+                                    this.props.cart.length > 0 ?
+                                    <span> | {this.props.cart.length}</span> :
+                                    null
+                                }
+                            </div>
+                        </div>
                         <Cart 
-                            removeProduct={this.props.removeProduct} 
-                            cart={this.props.cart}
-                        /> : null
-                    }
-                </nav>
+                            isOpen={this.state.isCartOpen}
+                            cart={this.props.cart} 
+                            removeProduct={this.props.removeProduct}
+                        />
+                    </nav>
+                    : null
+                }
             </React.Fragment>
         );
     }

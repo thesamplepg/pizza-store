@@ -1,9 +1,10 @@
 import * as actionTypes from '../actions/index';
+import { getCartFromLS } from './utilits';
 
 const initialState = {
     loading: false,
     promotions: null,
-    cart: []
+    cart: getCartFromLS()
 };
 
 export default (state = initialState, action) => {

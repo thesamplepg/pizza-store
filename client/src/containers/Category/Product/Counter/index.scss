@@ -14,7 +14,7 @@
         cursor: pointer;
         border-radius: 5px;
         background-color: var(--color-orange);
-        padding: .5rem;
+        padding: .5em;
 
         svg {
             color: #fff;
@@ -23,5 +23,9 @@
         &:active {
             opacity: .8;
         }
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 10px;
     }
 }

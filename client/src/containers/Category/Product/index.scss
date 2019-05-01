@@ -1,12 +1,16 @@
 .main-page_product {
     display: flex;
     flex-direction: column;
-    margin: 1rem 0;
+    margin: 1em 0;
 
     .wrapper {
         display: flex;
         flex-direction: column;
         overflow: hidden;
+
+        @media screen and (max-width: 420px) {
+            flex-basis: 230px !important;
+        }
     }
 
     &_image-wrapper {
@@ -19,17 +23,18 @@
     &_title {
         font-family: var(--font-open);
         opacity: .9;
-        font-size: 1.2rem;
-        margin: 1rem 0;
+        font-size: 1.2em;
+        margin: 1em 0;
         font-weight: 600;
     }
 
     &_description {
         font-family: var(--font-roboto);
         opacity: .6;
-        margin-bottom: 1rem;
+        margin-bottom: 1em;
         overflow: hidden;
         flex-grow: 1;
+        overflow-y: auto;
     }
 
     &_footer {
@@ -40,12 +45,12 @@
         &_price {
             font-family: var(--font-roboto);
             font-weight: bold;
-            font-size: 1.3rem;
+            font-size: 1.3em;
             color: rgba(0, 0, 0, 0.76);
         }
 
         &_button {
-            padding: .5rem 1rem;
+            padding: .5em .5em;
             background-color: var(--color-orange);
             color: #fff;
             border-radius: 5px;
@@ -57,4 +62,9 @@
             }
         }
     }
+
+    @media screen and (max-width: 420px) {
+        font-size: 12px;
+    }
+
 }

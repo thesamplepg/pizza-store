@@ -9,6 +9,7 @@ import Loader from './components/Loader';
 import AdminPage from './containers/AdminPage';
 import AdminLogin from './containers/AdminLogin';
 import MainPage from './containers/MainPage';
+import Order from './containers/Order';
 
 class App extends Component {
 
@@ -43,6 +44,7 @@ class App extends Component {
                     <Switch>
                         <Route path="/admin/login" component={AdminLogin}/>
                         <Route path="/admin" component={AdminPage}/>
+                        <Route path="/order" component={Order}/>
                         <Route path="/" component={MainPage}/>
                     </Switch>
                 </main>

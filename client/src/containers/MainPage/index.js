@@ -26,7 +26,7 @@ class MainPage extends Component {
     render() {
         return (
             <React.Fragment>
-                <MainNavbar />
+                <MainNavbar navbar/>
                 <CarouselSection promotions={this.props.promotions}/>
                 <div className="main-page_categories">
                     {this.renderCategories()}
