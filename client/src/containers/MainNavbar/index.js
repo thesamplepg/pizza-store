@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import './index.scss';
+import { removeProduct } from '../../store/actions/app';
 import logo from '../../assets/logo.png';
+import Cart from '../Cart';
 
 class MainNavbar extends Component {
 
     state = {
         logo: false,
-        offsetTop: null
+        offsetTop: null,
+        isCartOpen: false
     }
 
     componentDidMount() {
@@ -34,6 +38,8 @@ class MainNavbar extends Component {
             behavior: 'smooth'
         });
     }
+
+    toggleCart = () => this.setState({isCartOpen: !this.state.isCartOpen});
     
     render() {
         const items = ['pizzas', 'combos', 'snakes', 'drinks', 'desserts', 'souvenirs'];
@@ -66,11 +72,32 @@ class MainNavbar extends Component {
                                 </li>
                             )}
                         </ul>
+                        <Link 
+                            to="/cart" 
+                            className="cart" 
+                            onClick={this.toggleCart}
+                        >
+                            Cart
+                            {
+                                this.props.cart.length > 0 ?
+                                <span> | {this.props.cart.length}</span> :
+                                null
+                            }
+                        </Link>
                     </div>
+                    {
+                        this.state.isCartOpen ? 
+                        <Cart 
+                            removeProduct={this.props.removeProduct} 
+                            cart={this.props.cart}
+                        /> : null
+                    }
                 </nav>
             </React.Fragment>
         );
     }
 }
 
-export default MainNavbar;
+export default connect( state => ({
+    cart: state.app.cart
+}), {removeProduct} )(MainNavbar);

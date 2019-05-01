@@ -1,0 +1,106 @@
+.cart-section {
+    width: 300px;
+    padding: 1rem;
+    padding-bottom: 1rem;
+    background-color: #fff;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: calc((100% - 960px) / 2);
+    border-radius: 20px;
+    opacity: 0;
+    animation: fadeIn .5s ease 1 forwards;
+    transition: opacity .5s;
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    &_order-button {
+        display: block;
+        width: 100%;
+        padding: .5rem 0;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        background-color: var(--color-orange);
+        border-radius: 10px;
+        font-weight: 600;
+        font-family: var(--font-poppins);
+    }
+
+    &_cart-items {
+        list-style: none;
+        max-height: 300px;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: .5rem;
+            background-color: #fff;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: fff;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            margin-top: 1rem;
+            border-radius: 50px;
+            background-color: var(--color-orange);
+        }
+
+        &_cart-item {
+            position: relative;
+            margin: .5rem 0;
+            display: flex;
+            align-items: center;
+            
+            img {
+                width: 50px;
+                height: 50px;
+                margin-right: .5rem;
+            }
+
+            .information {
+                font-weight: bold;
+                font-family: var(--font-roboto);
+                line-height: 20px;
+
+                .title {
+                    opacity: .5;
+                }
+            }
+
+            &_remove {
+                cursor: pointer;
+                position: absolute;
+                right: 20px;
+                
+                &:hover {
+                    color: var(--color-orange);
+                }
+
+                svg {
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+
+    &_total-cost {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #ccc;
+        padding: 1rem;
+        padding-bottom: 0;
+        font-family: var(--font-roboto);
+    }
+}
+
+.empty {
+    text-align: center;
+    font-family: var(--font-open);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--color-orange);
+}

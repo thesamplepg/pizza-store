@@ -85,6 +85,13 @@ export default (state = initialState, action) => {
             }
         }
 
+        case actionTypes.REMOVE_PRODUCT: {
+            return {
+                ...state,
+                cart: state.cart.filter(item => item._id !== action.payload.id)
+            }
+        }
+
         default: return state;
     }
 

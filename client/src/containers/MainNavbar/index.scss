@@ -1,5 +1,5 @@
 .main-page_header {
-    width: 100%;
+    width: 100%;    
     
     .wrapper {
         width: 960px;
@@ -51,6 +51,9 @@
         width: 960px;
         margin: 0 auto;
         overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
         ul {
             transition: transform .4s;
@@ -71,6 +74,21 @@
                 color: rgba(0, 0, 0, 0.562);
                 font-weight: 600;
                 margin: 0 1rem;
+            }
+        }
+
+        .cart {
+            color: rgba(255, 255, 255, 0.836);
+            background-color: var(--color-orange);
+            padding: .5rem 1rem;
+            font-family: var(--font-roboto);
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            display: flex;
+
+            span {
+                margin-left: .3rem;
             }
         }
 

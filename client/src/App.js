@@ -51,8 +51,8 @@ class App extends Component {
 
         return (
             <React.Fragment>
-                {output}
                 <Loader loading={this.props.loading}/>
+                {output}
             </React.Fragment>
         );
     }

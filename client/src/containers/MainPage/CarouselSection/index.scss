@@ -6,9 +6,10 @@
 
         .swiper-slide {
             flex-shrink: 0;
-            height: 400px;
-            background-size: cover !important;
-            background-position: center center !important;
+
+            img {
+                width: 100%;
+            }
         }
     }
 }

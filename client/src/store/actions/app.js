@@ -37,4 +37,7 @@ export const removeFromCart = (id) => ({
     payload: { id }
 });
 
-
+export const removeProduct = (id) => ({
+    type: actionTypes.REMOVE_PRODUCT,
+    payload: { id }
+});

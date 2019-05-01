@@ -1,4 +1,13 @@
 .main-page_product {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
 
     &_image-wrapper {
 
@@ -18,8 +27,9 @@
     &_description {
         font-family: var(--font-roboto);
         opacity: .6;
-        height: 150px;
+        margin-bottom: 1rem;
         overflow: hidden;
+        flex-grow: 1;
     }
 
     &_footer {

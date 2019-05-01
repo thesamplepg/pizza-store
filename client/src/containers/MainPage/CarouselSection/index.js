@@ -19,16 +19,13 @@ const CarouselSection = ({promotions}) => {
             <div className="swiper-wrapper">
                 {
                     promotions.map(item => {
-                        const itemStyles = {
-                            background: `url('${item.image.url}')`
-                        }
-
                         return (
                             <div  
-                                key={item.image.id}
-                                style={itemStyles}    
+                                key={item.image.id} 
                                 className="swiper-slide"
-                            ></div>
+                            >
+                                <img src={item.image.url} alt="promtion"/>
+                            </div>
                         )
                     })
                 }
