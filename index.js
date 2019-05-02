@@ -8,6 +8,7 @@ const keys = require('./configs/keys');
 const apiRoutes = require('./api');
 const path = require('path');
 const MemoryStore = require('memory-store')(session);
+const fs = require('fs');
 
 const app = express();
 
