@@ -12,7 +12,8 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
     "redux": "^4.0.1",
-    "swiper": "^4.5.0"
+    "swiper": "^4.5.0",
+    "node-sass": "^4.11.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,9 +35,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "node-sass": "^4.11.0"
   },
   "proxy": "http://localhost:5000"
 }
