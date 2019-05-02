@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const keys = require('./configs/keys');
 const apiRoutes = require('./api');
 const path = require('path');
-const MemoryStore = require('memory-store')(session);
+const MemoryStore = require('memorystore')(session);
 const fs = require('fs');
 
 const app = express();
