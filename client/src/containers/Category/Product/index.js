@@ -9,7 +9,7 @@ const Product = (props) => {
             <div className="main-page_product_image-wrapper">
                 <img src={props.image.url} alt="product-presentation"/>
             </div>
-            <div className="wrapper" style={{flexBasis: props.description !== 'null' ? '280px' : 'none'}}>
+            <div className="wrapper" style={{flexBasis: props.type === 'drink' ? '100px' : 'none'}}>
                 <div className="main-page_product_title">{props.title}</div>
                 {
                     props.description !== 'null' ?

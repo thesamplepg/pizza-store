@@ -1,0 +1,41 @@
+.admin_order {
+    margin: 2rem 0;
+    position: relative;
+
+    &_phone, &_address {
+        font-family: var(--font-open);
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.596);
+    }
+
+    &_delivered {
+        width: 150px;
+        text-align: center;
+        margin: 1rem 0;
+        padding: .5rem 1rem;
+        font-weight: bold;
+        color: #fff;
+        font-family: var(--font-open);
+        cursor: pointer;
+    }
+    
+    button {
+        border-radius: 50px;
+        margin-top: 1rem;
+        background-color: var(--color-orange);
+        border: none;
+        outline: none;
+        padding: .5rem 1rem;
+        color: #fff;
+        cursor: pointer;
+        font-family: var(--font-roboto);
+        font-weight: bold;
+    }
+
+    .delete-button {
+        margin-left: 3rem;
+        position: relative;
+        overflow: hidden;
+        background-color: red;
+    }
+}

@@ -8,9 +8,7 @@
         flex-direction: column;
         overflow: hidden;
 
-        @media screen and (max-width: 420px) {
-            flex-basis: 230px !important;
-        }
+        flex-basis: 280px;
     }
 
     &_image-wrapper {

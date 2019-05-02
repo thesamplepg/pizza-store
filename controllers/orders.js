@@ -29,6 +29,8 @@ exports.createOrder = (req, res) => {
         })
         .catch(error => {
 
+            console.log(error);
+
             if(error.ValidationError) {
                 res.status(400).json({
                     success: false,
@@ -40,6 +42,20 @@ exports.createOrder = (req, res) => {
 
         });
 
+}
+
+exports.switchToDelivered = (req, res) => {
+    const { id } = req.query;
+
+    if(id && ObjectId.isValid(id)) {
+
+        Order.updateOne({_id: ObjectId(id)}, {$set: {delivered: true}})
+            .then(() => res.status(200).json({success: true}))
+            .catch(err => console.log(err));
+
+    } else {
+        res.status(400).json({success: false, error: 'Wrong id'})
+    }
 }
 
 exports.deleteOrder = (req, res) => {

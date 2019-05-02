@@ -1,0 +1,24 @@
+.admin_orders_order-products {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+
+    &_product {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin: 1rem;
+        flex-basis: 200px;
+        text-align: center;
+
+        img {
+            width: 150px;
+        }
+
+        h3 {
+            color: rgba(0, 0, 0, 0.63);
+            font-family: var(--font-open);
+        }
+    }
+}

@@ -33,3 +33,15 @@ export const getAdmins = () => dispatch => {
 export const getOrders = () => dispatch => {
     return getDataTemplate('orders', actionTypes.GET_ORDERS, dispatch);
 }
+
+export const deleteOrder = (id) => {
+    return {
+        type: actionTypes.DELETE_ORDER,
+        payload: {id}
+    }
+}
+
+export const switchToDelivered = (id) => ({
+    type: actionTypes.DELIVERED,
+    payload: { id }
+});

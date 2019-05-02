@@ -10,6 +10,7 @@ import AdminPage from './containers/AdminPage';
 import AdminLogin from './containers/AdminLogin';
 import MainPage from './containers/MainPage';
 import Order from './containers/Order';
+import Footer from './components/Footer';
 
 class App extends Component {
 
@@ -55,6 +56,7 @@ class App extends Component {
             <React.Fragment>
                 <Loader loading={this.props.loading}/>
                 {output}
+                <Footer />
             </React.Fragment>
         );
     }

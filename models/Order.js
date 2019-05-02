@@ -1,25 +1,21 @@
 const mongoose = require('mongoose');
 
 const OrderSchema = new mongoose.Schema({
-    street: {
-        type: String,
-        required: true
-    },
-    flat: {
-        type: String,
-        required: true
-    },
-    code: {
-        type: String,
-        required: true
-    },
-    comment: {
+    address: {
         type: String,
         required: true
     },
     phoneNumber: {
         type: Number,
         required: true
+    },
+    products: {
+        type: Array,
+        default: []
+    },
+    delivered: {
+        type: Boolean,
+        default: false
     }
 });
 

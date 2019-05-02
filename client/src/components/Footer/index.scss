@@ -1,0 +1,17 @@
+.main-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--color-orange);
+    color: #fff;
+
+    h1 {
+        font-size: 1.3rem;
+        font-family: var(--font-open)
+    }
+
+    .main-footer_coder {
+        font-family: var(--font-roboto);
+    }
+}
