@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const keys = require('./configs/keys');
 const apiRoutes = require('./api');
 const path = require('path');
+const MemoryStore = require('memory-store')(session);
 
 const app = express();
 
@@ -21,7 +22,10 @@ app.use(helmet());
 app.use(session({
     secret: keys.session,
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    store: new MemoryStore({
+        checkPeriod: 86400000
+    })
 }));
 
 apiRoutes(app);
@@ -30,10 +34,6 @@ if(process.env.NODE_ENV === 'production') {
     app.use('/static/', express.static(__dirname + '/client/build/static'));
     app.use('/favicon.ico', express.static(__dirname + '/client/build/favicon.ico'));
     app.use('/manifest.json', express.static(__dirname + '/client/build/manifest.json'));
-
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    });
 }
 
 // app.use('/static/', express.static(__dirname + '/client/build/static'));
@@ -45,6 +45,12 @@ if(process.env.NODE_ENV === 'production') {
 //     });
 
 app.listen(process.env.PORT || 5000, async() => {
+
+    if(process.env.NODE_ENV === 'production') {
+        app.get('*', (req, res) => {
+            res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+        });
+    }
 
     try {
         await databaseConnect();
