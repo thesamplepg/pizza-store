@@ -25,7 +25,20 @@ app.use(session({
 
 apiRoutes(app);
 
+if(process.env.NODE_ENV === 'production') {
+    app.use('/static/', express.static(__dirname + '/client/build/static'));
+    app.use('/favicon.ico', express.static(__dirname + '/client/build/favicon.ico'));
+    app.use('/manifest.json', express.static(__dirname + '/client/build/manifest.json'));
+}
+
+if(process.env.NODE_ENV === 'production') {
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
+
 app.listen(process.env.PORT || 5000, async() => {
+
     try {
         await databaseConnect();
 
