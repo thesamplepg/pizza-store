@@ -5,18 +5,23 @@
 
     .wrapper {
         display: flex;
-        flex-basis: 240px;
         flex-direction: column;
+        flex-basis: 230px;
         overflow-y: auto;
-        
-        @media screen and (max-width: 768px){
-            flex-basis: 200px;
-        }
+
+        // @media screen and (max-width: 768px){
+        //     flex-basis: 200px;
+        // }
 
         @media screen and (max-width:500px) {
             flex-basis: 150px;
         }
     }
+
+    // &_description {
+    //     overflow-y: auto;
+    //     flex-basis: 100px;
+    // }
 
     &_image-wrapper {
 
