@@ -5,10 +5,17 @@
 
     .wrapper {
         display: flex;
+        flex-basis: 240px;
         flex-direction: column;
-        overflow: hidden;
+        overflow-y: auto;
+        
+        @media screen and (max-width: 768px){
+            flex-basis: 200px;
+        }
 
-        flex-basis: 280px;
+        @media screen and (max-width:500px) {
+            flex-basis: 150px;
+        }
     }
 
     &_image-wrapper {
@@ -33,6 +40,15 @@
         overflow: hidden;
         flex-grow: 1;
         overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--color-orange);
+            border-radius: 50px;
+        }
     }
 
     &_footer {
